@@ -33,6 +33,7 @@ user.post("/signup", async (c) => {
     //New User Generate
     const user = await prisma.user.create({
       data: {
+        name: body.name,
         email: body.email,
         password: body.password,
       },
@@ -41,7 +42,7 @@ user.post("/signup", async (c) => {
     //JWT token generate
     const jwt = await sign({ id: user.id }, c.env.JWT_SECRET);
 
-    return c.json({ jwt });
+    return c.json({ data: jwt });
   } catch (e) {
     return c.status(401);
   }
@@ -54,6 +55,7 @@ user.post("/signin", async (c) => {
 
   //Recieve data from BODY
   const body = await c.req.json();
+  console.log(body);
 
   const { success } = signinSchema.safeParse(body);
 
@@ -81,7 +83,7 @@ user.post("/signin", async (c) => {
     });
   }
 
-  return c.json({ user });
+  return c.json({ data: user });
 });
 
 export default user;
