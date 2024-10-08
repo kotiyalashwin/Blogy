@@ -1,5 +1,6 @@
 import { AppBar } from "../components/Appbar";
 import { Blog } from "../components/Blog";
+
 import CardSkeleton from "../components/SkeletonBlog";
 import { useBlog } from "../hooks/getblog";
 
@@ -8,7 +9,7 @@ export const Blogs = () => {
 
   if (loading) {
     return (
-      <div>
+      <div className="bg-gradient-to-br from-emerald-50 to-teal-100">
         <AppBar />
         <div className="flex flex-col justify-center items-center ">
           <div className="max-w-lg  w-full p-4">
@@ -26,7 +27,7 @@ export const Blogs = () => {
   }
 
   return (
-    <div className="min-h-screen bg-[#f8f9fa] flex flex-col">
+    <div className="min-h-screen bg-gradient-to-br from-emerald-50 to-teal-100 flex flex-col">
       <AppBar />
 
       <div className="flex flex-col justify-center items-center ">
