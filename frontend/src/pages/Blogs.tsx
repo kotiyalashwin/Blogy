@@ -9,7 +9,7 @@ export const Blogs = () => {
 
   if (loading) {
     return (
-      <div className="bg-gradient-to-br from-emerald-50 to-teal-100">
+      <div className="sm:bg-gradient-to-br sm:from-emerald-50 sm:to-teal-50">
         <AppBar />
         <div className="flex flex-col justify-center items-center ">
           <div className="max-w-lg  w-full p-4">
@@ -27,10 +27,10 @@ export const Blogs = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 to-teal-100 flex flex-col">
+    <div className="min-h-screen  sm:bg-gradient-to-br sm:from-emerald-50 sm:to-teal-50 flex flex-col">
       <AppBar />
 
-      <div className="flex flex-col justify-center items-center ">
+      <div className="flex flex-col sm:flex-row justify-center items-center ">
         <div className="max-w-lg  w-full p-4">
           <div className="h-[calc(100vh-150px)] ">
             {blog?.map((el: any) => (

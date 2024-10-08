@@ -35,9 +35,9 @@ export const AppBar = () => {
             </button>
           )}
 
-          <p className="font-semibold sm:text-lg tracking-wide">
+          {/* <p className="font-semibold sm:text-lg tracking-wide">
             {currentUser === "" ? "USER" : currentUser.toLocaleUpperCase()}
-          </p>
+          </p> */}
           <div className="flex flex-col justify-center">
             <Avatar
               name={currentUser === "" ? "User" : currentUser}
