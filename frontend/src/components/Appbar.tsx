@@ -25,8 +25,8 @@ export const AppBar = ({ name }: props) => {
 export const Avatar = ({ name, size = "big" }: props) => {
   return (
     <div
-      className={`ml-2 rounded-full ${
-        size === "small" ? "w-2 h-2 p-3" : "p-4 w-4 h-4"
+      className={` rounded-full ${
+        size === "small" ? "w-1 h-1 p-3 text-xs" : "p-4 w-4 h-4 ml-2"
       } text-white bg-emerald-400 flex flex-col justify-center items-center `}
     >
       {name[0].toLocaleUpperCase()}
