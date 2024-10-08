@@ -52,10 +52,20 @@ blog.get("/bulk", async (c) => {
   }).$extends(withAccelerate());
 
   try {
-    const blog = await prisma.post.findMany();
+    const blog = await prisma.post.findMany({
+      select: {
+        title: true,
+        content: true,
+        author: {
+          select: {
+            name: true,
+          },
+        },
+      },
+    });
 
     return c.json({
-      blog: blog,
+      blog,
     });
   } catch (e) {
     return c.json({

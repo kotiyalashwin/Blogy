@@ -1,7 +1,7 @@
 import { Hono } from "hono";
 import { PrismaClient } from "@prisma/client/edge";
 import { withAccelerate } from "@prisma/extension-accelerate";
-import { sign } from "hono/jwt";
+import { sign, verify } from "hono/jwt";
 import { signupSchema } from "@ashwindevs/blog-common";
 import { signinSchema } from "@ashwindevs/blog-common";
 
@@ -9,6 +9,9 @@ const user = new Hono<{
   Bindings: {
     DATABASE_URL: string;
     JWT_SECRET: string;
+  };
+  Variables: {
+    userId: string;
   };
 }>().basePath("user");
 
@@ -72,9 +75,6 @@ user.post("/signin", async (c) => {
       email: body.email,
       password: body.password,
     },
-    select: {
-      email: true,
-    },
   });
 
   if (!user) {
@@ -83,7 +83,31 @@ user.post("/signin", async (c) => {
     });
   }
 
-  return c.json({ data: user });
+  const jwt = await sign({ id: user.id }, c.env.JWT_SECRET);
+
+  return c.json({ data: jwt });
+});
+
+user.get("/curuser", async (c) => {
+  const prisma = new PrismaClient({
+    datasourceUrl: c.env?.DATABASE_URL,
+  }).$extends(withAccelerate());
+
+  const header = c.req.header("authorization") || "";
+  const user = await verify(header, c.env.JWT_SECRET);
+  c.set("userId", user.id as string);
+  const current = await prisma.user.findUnique({
+    where: {
+      id: Number(c.get("userId")),
+    },
+    select: {
+      name: true,
+    },
+  });
+
+  c.json({
+    current,
+  });
 });
 
 export default user;

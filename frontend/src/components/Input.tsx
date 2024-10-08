@@ -9,13 +9,13 @@ type props = {
 
 export const Input = ({ label, placeholder, type, onChange }: props) => {
   return (
-    <div className="flex flex-col ">
-      <label className="text-white  mb-2">{label}</label>
+    <div className="flex flex-col w-full ">
+      <label className="text-black  mb-2">{label}</label>
       <input
         onChange={onChange}
         type={type}
         placeholder={`${placeholder}`}
-        className="p-2 outline-none transition-all  placeholder-gray-500 border-[1px] border-white/20 rounded-sm focus:ring-blue-400 focus:border-blue-400 bg-black/50"
+        className="p-2 outline-none   transition-all text-black  placeholder-neutral-400 border border-black/30 rounded-lg focus:ring-blue-400 focus:border-blue-400 "
       />
     </div>
   );
