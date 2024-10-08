@@ -9,7 +9,7 @@ export const Blogs = () => {
   if (loading) {
     return (
       <div>
-        <AppBar name="ashwin" />
+        <AppBar />
         <div className="flex flex-col justify-center items-center ">
           <div className="max-w-lg  w-full p-4">
             <div className="h-[calc(100vh-150px)] ">
@@ -27,7 +27,7 @@ export const Blogs = () => {
 
   return (
     <div className="min-h-screen bg-[#f8f9fa] flex flex-col">
-      <AppBar name={"ashwin"} />
+      <AppBar />
 
       <div className="flex flex-col justify-center items-center ">
         <div className="max-w-lg  w-full p-4">
