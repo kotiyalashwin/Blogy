@@ -1,10 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AppBar } from "../components/Appbar";
+import { NewBlog, newBlogSchema } from "@ashwindevs/blog-common";
+import toast from "react-hot-toast";
+import axios from "axios";
+import { BACKEND_URL } from "../config";
+import { useNavigate } from "react-router-dom";
 
-export const NewBlog = () => {
+export const CreateBlog = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const navigate = useNavigate();
 
-  const [newBlog, setNewBlog] = useState({
+  const [newBlog, setNewBlog] = useState<NewBlog>({
     title: "",
     content: "",
   });
@@ -12,6 +18,25 @@ export const NewBlog = () => {
   async function handleNewBlog(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setIsSubmitting(true);
+    try {
+      const { success } = newBlogSchema.safeParse(newBlog);
+
+      if (!success) {
+        toast.error("Invalid Inputs");
+        return;
+      }
+
+      await axios.post(`${BACKEND_URL}/api/v1/blog/new`, newBlog, {
+        headers: {
+          Authorization: localStorage.getItem("token"),
+        },
+      });
+
+      setIsSubmitting(false);
+      navigate("/blogs");
+    } catch (e) {
+      toast.error("Error Creating New blog");
+    }
   }
 
   return (
@@ -25,8 +50,12 @@ export const NewBlog = () => {
               <label className="text-teal-900 text-3xl">Title:</label>
 
               <input
+                required
                 placeholder="Title to your thoughts"
                 className="p-2 text-lg outline-none   transition-all   border  border-emerald-300 rounded-lg focus:ring-teal-500 focus:ring-2 focus:border-transparent ease-in-out "
+                onChange={(e) => {
+                  setNewBlog((s) => ({ ...s, title: e.target.value }));
+                }}
               />
               <label className="text-teal-900 text-3xl">Your Idea:</label>
               <textarea
@@ -34,6 +63,9 @@ export const NewBlog = () => {
                 required
                 className="outline-none w-full px-3 py-2 rounded-md  border  border-emerald-300 focus:ring-2 focus:ring-teal-500 focus:border-transparent transition duration-150 ease-in-out"
                 placeholder="Write your post..."
+                onChange={(e) => {
+                  setNewBlog((s) => ({ ...s, content: e.target.value }));
+                }}
                 rows={10}
               />
 

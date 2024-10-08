@@ -11,7 +11,6 @@ export const AppBar = () => {
   const { currentUser, loading } = useUser();
   const curr = window.location.href.slice(22);
   const navigate = useNavigate();
-
   return (
     <div className="sticky top-0 flex justify-between border-b shadow-md border-black/30  items-center px-4 py-3  bg-[#f8f8fa]">
       <div className="font-semibold text-2xl tracking-widest text-teal-900">

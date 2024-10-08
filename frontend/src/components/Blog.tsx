@@ -1,4 +1,7 @@
+import toast from "react-hot-toast";
+import { useUser } from "../hooks/currentuser";
 import { Avatar } from "./Appbar";
+import { useNavigate } from "react-router-dom";
 
 interface props {
   name: string;
@@ -17,7 +20,9 @@ export const Blog = ({ name, title, content }: props) => {
         {title}
       </div>
       <div className="text-neutral-500  text-[12px] sm:text-sm">
-        {content.length > 250 ? `${content.slice(0, 15)}...` : content}
+        {content.length > 150
+          ? `${content.slice(0, 80)}... Read More`
+          : content}
       </div>
     </div>
   );
