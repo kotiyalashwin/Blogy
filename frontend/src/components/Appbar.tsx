@@ -16,14 +16,12 @@ export const AppBar = () => {
       {loading === true ? (
         <AppbarSkeleton />
       ) : (
-        <div className="flex items-center">
-          <p>
-            Welcome{" "}
-            <span className="font-semibold">
-              {currentUser === ""
-                ? "User"
-                : currentUser[0].toLocaleUpperCase() + currentUser.slice(1)}
-            </span>
+        <div className="flex items-center justify-evenly ">
+          <button className=" sm:text-lg h-2/4 text-white text-center rounded-md font-semibold bg-gradient-to-r tracking-widest from-teal-400 to-emerald-500 sm:hover:from-teal-500 sm:hover:to-emerald-600 px-4 mr-2 py-2 transition-all duration-300 transform hover:scale-105">
+            New
+          </button>
+          <p className="font-semibold sm:text-lg tracking-wide">
+            {currentUser === "" ? "USER" : currentUser.toLocaleUpperCase()}
           </p>
           <div className="flex flex-col justify-center">
             <Avatar
