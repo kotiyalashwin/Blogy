@@ -20,8 +20,8 @@ compatibility_flags = [ "nodejs_compat" ]
 
 
 [vars]
-DATABASE_URL="prisma://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoiZjQyNzVhMTQtYmY2MC00MGVkLWFkZWItYTY3YjYyMjg4NDI0IiwidGVuYW50X2lkIjoiYWRjNjliMDRiM2RhN2JhNmE2MTEzMTBmZDNjZWM1MGE0ZDkwZGEwMTUzODdlOWM5NzdhM2ZmOWYwNzcyOGNkYyIsImludGVybmFsX3NlY3JldCI6IjZmYWFiZDIxLTExYWMtNGYyOC04MDRmLWNhMzk5NGViMGUyMiJ9.VA4UbqZfROJ0vdACMpkWgbwkSr5R66m_ahIjX_FEmSI"
-JWT_SECRET = "mysecretpassword"
+DATABASE_URL=""
+JWT_SECRET = ""
 
 # [ai]
 # binding = "AI"
