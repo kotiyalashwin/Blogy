@@ -93,21 +93,27 @@ user.get("/curuser", async (c) => {
     datasourceUrl: c.env?.DATABASE_URL,
   }).$extends(withAccelerate());
 
-  const header = c.req.header("authorization") || "";
-  const user = await verify(header, c.env.JWT_SECRET);
-  c.set("userId", user.id as string);
-  const current = await prisma.user.findUnique({
-    where: {
-      id: Number(c.get("userId")),
-    },
-    select: {
-      name: true,
-    },
-  });
+  try {
+    const header = c.req.header("authorization") || "";
+    const user = await verify(header, c.env.JWT_SECRET);
+    c.set("userId", user.id as string);
+    const current = await prisma.user.findUnique({
+      where: {
+        id: Number(c.get("userId")),
+      },
+      select: {
+        name: true,
+      },
+    });
 
-  c.json({
-    current,
-  });
+    return c.json({
+      current,
+    });
+  } catch (e) {
+    c.json({
+      msg: "error getting current user",
+    });
+  }
 });
 
 export default user;
