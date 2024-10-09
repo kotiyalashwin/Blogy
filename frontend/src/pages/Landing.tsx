@@ -1,7 +1,8 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence, delay } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
 export const Landing = () => {
+  localStorage.removeItem("token");
   return (
     <motion.div className="bg-gradient-to-r from-emerald-50 to-teal-100 min-h-screen flex flex-col items-center justify-evenly">
       <HomeAppBar />
@@ -58,10 +59,10 @@ const Home = () => {
         </motion.p>
 
         <motion.button
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          initial={{ opacity: 0, y: 0 }}
+          animate={{ opacity: 1, y: [100, 0] }}
           transition={{ delay: 3 }}
-          className="mt-8 bg-teal-800 py-4 px-4 rounded-full text-white "
+          className="mt-8 bg-teal-800 py-4 px-4 rounded-full text-white  "
           onClick={() => {
             navigate("/signup");
           }}
