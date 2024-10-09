@@ -43,7 +43,7 @@ export const CreateBlog = () => {
     <div>
       <AppBar />
 
-      <div className="flex justify-center items-center p-10  ">
+      <div className="flex justify-center items-center p-10 ">
         <div className="max-w-lg  w-full p-4 border shadow-md backdrop-blur-sm">
           <div className="flex flex-col   p-4">
             <form className="flex flex-col space-y-4" onSubmit={handleNewBlog}>
