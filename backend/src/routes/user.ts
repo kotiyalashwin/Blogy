@@ -79,12 +79,11 @@ user.post("/signin", async (c) => {
 
   if (!user) {
     return c.json({
-      msg: "user not found",
+      data: "-1",
     });
   }
 
   const jwt = await sign({ id: user.id }, c.env.JWT_SECRET);
-
   return c.json({ data: jwt });
 });
 

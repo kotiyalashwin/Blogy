@@ -42,7 +42,14 @@ export const Verify = ({ type }: { type: "signup" | "signin" }) => {
         newInputs
       );
       const jwt = await response.data;
+      if (jwt.data === "-1") {
+        toast.error("Invalid Credentials");
+        setLoading(false);
+        return;
+      }
+
       localStorage.setItem("token", jwt.data);
+      toast.success("Success");
       setLoading(false);
       navigate("/blogs");
     } catch (e) {

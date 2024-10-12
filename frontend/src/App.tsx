@@ -9,7 +9,7 @@ import { Landing } from "./pages/Landing";
 
 function App() {
   return (
-    <div>
+    <div className="bg-gradient-to-br min-h-[100vh]  sm:from-emerald-50 sm:to-teal-50">
       <Toaster />
       <BrowserRouter>
         <Routes>

@@ -47,9 +47,14 @@ export const AppBar = () => {
 
   return (
     <div className="sticky top-0 flex justify-between border-b shadow-md border-black/30  items-center px-4 py-3  bg-[#f8f8fa]">
-      <div className="font-semibold text-2xl tracking-widest text-teal-900">
-        BlogHub
-      </div>
+      <button
+        onClick={() => {
+          navigate("/");
+        }}
+        className="font-semibold text-2xl tracking-widest text-teal-900"
+      >
+        Bloggy
+      </button>
 
       {loading === true ? (
         <AppbarSkeleton />
@@ -106,8 +111,8 @@ export const Avatar = forwardRef<HTMLButtonElement, props>(
         ref={ref}
         onClick={toggleMenu}
         className={` rounded-full ${
-          size === "small" ? "w-1 h-1 p-3 text-xs" : "p-4 w-4 h-4 ml-2"
-        } text-white bg-emerald-400 flex flex-col justify-center items-center sm:hover:scale-105 `}
+          size === "small" ? "w-1 h-1 p-3 " : "p-6 w-6 h-6 ml-2"
+        } text-white  bg-emerald-400 flex flex-col justify-center items-center sm:hover:scale-105 `}
       >
         {name[0].toLocaleUpperCase()}
       </button>

@@ -16,7 +16,9 @@ const HomeAppBar = () => {
 
   return (
     <header className="sticky top-0 w-full bg-transparent px-6 py-4 flex justify-between items-center">
-      <div className="text-3xl text-emerald-600 flex">Blog Hub</div>
+      <div className="text-3xl text-emerald-600 flex tracking-wider">
+        BLOGGY
+      </div>
       {/* <div className="w-auto ">
         <ul className="flex justify-evenly space-x-6 text-emerald-600 ">
           {sections.map((section) => (
@@ -41,13 +43,13 @@ const Home = () => {
     >
       <motion.div className="w-full flex flex-col justify-evenly items-center">
         <motion.h1
-          initial={{ fontSize: "6rem", opacity: 0 }}
-          animate={{ fontSize: "8rem", opacity: 1 }}
+          initial={{ scale: 3, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
           exit={{ fontSize: "10rem" }}
           transition={{ duration: 1 }}
-          className="text-teal-900  mb-8 text-center "
+          className="text-teal-900 text-8xl  mb-8 text-center "
         >
-          Welcome to BlogHub
+          Welcome to Bloggy
         </motion.h1>
         <motion.p
           className="text-2xl text-center"
@@ -61,7 +63,7 @@ const Home = () => {
         <motion.button
           initial={{ opacity: 0, y: 0 }}
           animate={{ opacity: 1, y: [100, 0] }}
-          transition={{ delay: 3 }}
+          transition={{ delay: 2 }}
           className="mt-8 bg-teal-800 py-4 px-4 rounded-full text-white  "
           onClick={() => {
             navigate("/signup");
