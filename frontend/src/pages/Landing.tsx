@@ -1,4 +1,4 @@
-import { motion, AnimatePresence, delay } from "framer-motion";
+import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
 export const Landing = () => {
@@ -12,7 +12,7 @@ export const Landing = () => {
 };
 
 const HomeAppBar = () => {
-  const sections = ["home", "about", "contactUs"];
+  // const sections = ["home", "about", "contactUs"];
 
   return (
     <header className="sticky top-0 w-full bg-transparent px-6 py-4 flex justify-between items-center">

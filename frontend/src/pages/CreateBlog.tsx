@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { AppBar } from "../components/Appbar";
 import { NewBlog, newBlogSchema } from "@ashwindevs/blog-common";
 import toast from "react-hot-toast";

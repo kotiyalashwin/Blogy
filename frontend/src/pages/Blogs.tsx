@@ -4,10 +4,9 @@ import { Blog } from "../components/Blog";
 import NoBlogsFound from "../components/NotFound";
 import CardSkeleton from "../components/SkeletonBlog";
 import { useBlog } from "../hooks/getblog";
-import { AnimatePresence, motion } from "framer-motion";
 
 export const Blogs = () => {
-  const [open, setOpen] = useState(false);
+  const [, setOpen] = useState(false);
   const { loading, blog } = useBlog();
   if (loading) {
     return (

@@ -9,7 +9,7 @@ interface props {
   onClick: () => void;
 }
 
-export const Blog = ({ name, title, content, onClick }: props) => {
+export const Blog = ({ name, title, content }: props) => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -50,7 +50,7 @@ export const BlogFull = ({ onClick, name, title, content }: props) => {
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ duration: 0.25, ease: "easeInOut" }}
-        className="bg-white px-8 space-y-10 py-2 h-[60vh] max-w-lg flex flex-col justify-evenly"
+        className="bg-white px-8 space-y-10 py-2 h-[60vh] w-[80vw] flex flex-col justify-evenly"
       >
         <div className="flex flex-col items-center justify-center border-b border-black">
           <Avatar name={name} toggleMenu={() => {}} />
