@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useUser } from "../hooks/currentuser.ts";
+import { useUser } from "../hooks/curruser";
 import AppbarSkeleton from "./SkeletonAppbar";
 import { useState, useRef, useEffect, forwardRef } from "react";
 
