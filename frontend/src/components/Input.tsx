@@ -24,7 +24,7 @@ export const Input = ({ label, placeholder, type, onChange }: props) => {
           onChange={onChange}
           type={showPassword ? "text" : `${type}`}
           placeholder={`${placeholder}`}
-          className="outline-none"
+          className="outline-none w-full"
         />{" "}
         {type === "password" && (
           <button
