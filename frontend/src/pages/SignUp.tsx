@@ -2,7 +2,7 @@ import { Verify } from "../components/Verify";
 
 export const SignUp = () => {
   return (
-    <div className=" w-screen h-screen bg-gradient-to-br from-emerald-50 to-teal-100">
+    <div>
       <Verify type="signup" />
     </div>
   );

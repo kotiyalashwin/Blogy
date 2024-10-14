@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 export const Landing = () => {
   localStorage.removeItem("token");
   return (
-    <motion.div className="bg-gradient-to-r from-emerald-50 to-teal-100 min-h-screen flex flex-col items-center justify-evenly">
+    <motion.div className=" bg-transparent min-h-screen flex flex-col items-center justify-evenly">
       <HomeAppBar />
       <Home />
     </motion.div>

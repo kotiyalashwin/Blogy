@@ -58,15 +58,13 @@ export const Verify = ({ type }: { type: "signup" | "signin" }) => {
   }
 
   return (
-    <div className="min-h-screen  bg-gradient-to-br from-emerald-50 to-teal-100 text-white flex flex-col items-center justify-center  ">
-      <div className="absolute inset-0 bg-[url('/noise.jpg')] opacity-[0.003]"></div>
-      <div className="absolute inset-0 bg-gradient-to-br from-white/60 via-white/30 to-transparent"></div>
+    <div className="min-h-screen  bg-transparent text-white flex flex-col items-center justify-center  ">
       <div className="w-full max-w-md p-4 z-10 ">
         <form
           className=" backdrop-blur-md bg-white/80 z-10  rounded-lg shadow-xl  p-8 space-y-4 mb-4 flex flex-col items-center w-full  mx-auto"
           onSubmit={sendRequest}
         >
-          <h1 className="text-center my-4 text-5xl   p-2 text-teal-900  font-bold ">
+          <h1 className="text-center my-4 text-5xl   p-2 text-teal-900  font-bold  ">
             {type === "signup" ? "Sign Up" : "Welcome Back"}
           </h1>
           {type === "signup" ? (

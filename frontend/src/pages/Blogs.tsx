@@ -10,7 +10,7 @@ export const Blogs = () => {
   const { loading, blog } = useBlog();
   if (loading) {
     return (
-      <div className="sm:bg-gradient-to-br sm:from-emerald-50 sm:to-teal-50">
+      <div className="bg-transparent">
         <AppBar />
         <div className="flex flex-col justify-center items-center ">
           <div className="max-w-lg sm:max-w-[80vw]  w-full p-4">
@@ -28,10 +28,10 @@ export const Blogs = () => {
   }
 
   return (
-    <div className="  sm:bg-gradient-to-br sm:from-emerald-50 sm:to-teal-50 flex flex-col">
+    <div className=" flex flex-col">
       <AppBar />
 
-      <div className="flex flex-col sm:flex-row justify-center items-center ">
+      <div className="flex flex-col sm:flex-row justify-center bg-transparent  items-center ">
         <div className="max-w-lg sm:max-w-[80vw]  w-full p-4">
           <div className="h-screen">
             {blog?.length === 0 ? (

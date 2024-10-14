@@ -46,7 +46,7 @@ export const AppBar = () => {
   }, [isMenuOpen]);
 
   return (
-    <div className="sticky top-0 flex justify-between border-b shadow-md border-black/30  items-center px-4 py-3  bg-[#f8f8fa]">
+    <div className="sticky top-0 flex justify-between  items-center px-4 py-3  bg-transparent">
       <button
         onClick={() => {
           navigate("/");
